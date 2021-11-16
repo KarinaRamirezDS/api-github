@@ -1,0 +1,15 @@
+.contenido{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    margin: 50px;
+    padding:2rem;
+  }
+ .card{
+  align-items: center;
+  margin: auto;
+  padding: 10px;
+  width: 40%;
+  height: 35%;
+  }
