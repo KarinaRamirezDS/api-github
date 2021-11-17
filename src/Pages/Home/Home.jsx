@@ -3,7 +3,6 @@ import React, { useState } from "react";
 //Components
 import UserForm from "../../Components/Home/Form/UserForm";
 import GithubUser from "../../Components/Custom/GithubUser/GithubUser";
-import Error from "../../Components/Custom/Error/Error";
 import Loader from "../../Components/Custom/Loader/Loader";
 
 const Home = () => {

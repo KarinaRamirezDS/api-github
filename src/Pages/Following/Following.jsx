@@ -41,7 +41,7 @@ const Following = () => {
 
 
     return (
-        <div>
+        <div className="text-center">
             <h2>Following</h2>
 
             {followings && followings.length > 0 && !loader ? (

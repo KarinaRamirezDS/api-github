@@ -18,32 +18,29 @@ const GithubUser = props => {
   } = props;
 
   return (
-    <div className="contenido">
-      <div className="card ">
-      <div className="">
-        <img src={avatar} alt={github} className="" />
+    <div className="">
+      <div className="contenido ">      
+      <div className="contenido2">
+      <img src={avatar} alt={github} className="" />
         <h1>Username: {github_name}</h1>
-        
-      </div>
-      
 
-      <div className="">
+
       <h2 >{biografia}</h2>
         <p>
         <Link to={`/repos/${github_name}`}>
-          <span className=" bg-green-800"> Repositorios </span>{" "}
+          <span className=""> Repositorios </span>{" "}
           {public_repos}
           </Link>
         </p>
         <p>
           <Link to={`/followers/${github_name}`}>
-            <span className=" bg-green-800"> Followers </span>{" "}
+            <span className=""> Followers </span>{" "}
             {followers}
           </Link>
         </p>
         <p>
         <Link to={`/following/${github_name}`}>
-          <span className=" bg-green-800"> Following </span>{" "}
+          <span className=" "> Following </span>{" "}
           {following}
           </Link>
         </p>
