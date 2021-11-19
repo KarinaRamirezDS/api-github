@@ -4,13 +4,13 @@ import React, { useState } from "react";
 import UserForm from "../../Components/Home/Form/UserForm";
 import GithubUser from "../../Components/Custom/GithubUser/GithubUser";
 import Loader from "../../Components/Custom/Loader/Loader";
-
+import Error from "./Error";
 const Home = () => {
   //State
   const [userName, setUserName] = useState("");
   const [userInformation, setUserInformation] = useState(null);
   const [loader, setLoader] = useState(false);
-  
+  const [error, setError] = useState(false)
 
   //Funciones
   const handleUserName = ({ value }) => {
@@ -21,14 +21,28 @@ const Home = () => {
     e.preventDefault();
     setUserInformation(null);
     setLoader(true);
+
+    setError(true)
+    try{
     const API = `https://api.github.com/users/${userName}`;
     const response = await fetch(API);
     const result = await response.json();
    // console.log(result);
    
-    setUserInformation(result);
+    //setUserInformation(result);
     setLoader(false);
-   
+    if(result.message){
+      setError(true)
+      
+      
+    }else {;
+      setUserInformation(result)
+      setLoader(false)
+    }
+      }catch(e){
+        setLoader(false)
+
+}
     
   };
 
@@ -38,7 +52,10 @@ const Home = () => {
         handleUserName={handleUserName}
         handleSearchUser={handleSearchUser}
       />
-      <div className="text-center">
+  
+     
+
+      <div className="text-center w-3/4 md:w-7/12">
       
         {userInformation  ? (
           <GithubUser
@@ -51,10 +68,8 @@ const Home = () => {
             following={userInformation?.following}
             biografia={userInformation?.bio}
           />
-        ):null}
+        ): <Error message={error} />}
       </div>
-
-      
 
       {loader && <Loader />}
 
